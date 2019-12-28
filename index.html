@@ -16,6 +16,7 @@ function initMap() {
   // NOTE: This uses cross-domain XHR, and may not work on older browsers.
   map.data.loadGeoJson('routes.geojson');
   // map.data.loadGeoJson('stops.geojson'); // If we want to show all stops, we can enable this.
+  map.data.loadGeoJson('http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=getrealtime&route_id=n4');
 }
 
 google.maps.event.addDomListener(window, 'load', initMap);
