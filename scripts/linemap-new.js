@@ -13,7 +13,7 @@ jQuery(document).ready(function () {
        var serviceIdValLength = serviceIdVal.length;
 	
        for (var i = 0; i < routeValLength; i++) {
-	var route_val = routeVal[i]	
+	var route_val = routeVal[i];	
 	       getVehicles("#"+fulldata.Line[route_val].color);
 	       setTimeout(function(){
 		 getVehicles("#"+fulldata.Line[route_val].color);  
@@ -21,6 +21,7 @@ jQuery(document).ready(function () {
 	       setInterval(function() {
 		 getVehicles("#"+fulldata.Line[route_val].color);
 	       }, 15000);
+       }
   });
 
     var map;
