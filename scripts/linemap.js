@@ -696,8 +696,8 @@ function getVehicles(color) {
           var data = response.ResultData;
           // var icon = window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Inner-bus-lines.png";
           // var outer_icon = window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.svg";
-	  var icon = window.location.origin + "/images/RealTime-Inner-bus-lines.png";
-          var outer_icon = window.location.origin + "/images/RealTime-Outer.svg";
+	  var icon = window.location.origin + "/NICEMap/images/RealTime-Inner-bus-lines.png";
+          var outer_icon = window.location.origin + "/NICEMap/images/RealTime-Outer.svg";
           var marker, point;
           if(Object.keys(markerStore).length > (data.length * 2)) {
             var objArr = Object.keys(markerStore);
@@ -727,7 +727,7 @@ function getVehicles(color) {
                 
             function rotateMarker(selector, degree){
               // var ImgURL= window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png";                  
-             var ImgURL= window.location.origin + "/images/RealTime-Outer.png";
+             var ImgURL= window.location.origin + "/NICEMap/images/RealTime-Outer.png";
 	      jQuery('img[src="'+ImgURL+'#'+selector+'"]').css({
                'transform': 'rotate('+degree+'deg)'
              });
@@ -745,7 +745,7 @@ function getVehicles(color) {
               
             var outerIcon = {
               // url: window.location.origin +'/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png#' + data[i].vid,
-              url: window.location.origin +'/images/RealTime-Outer.png#' + data[i].vid,
+              url: window.location.origin +'/NICEMap/images/RealTime-Outer.png#' + data[i].vid,
 	      scale: 1,
               anchor: new google.maps.Point(35,35),
               strokeWeight: 1
@@ -787,7 +787,7 @@ function getVehicles(color) {
           for (var i=0; i< data.length; i++) {
             function rotateMarker(selector, degree){
               // var ImgURL= window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png"; 
-	      var ImgURL= window.location.origin + "/images/RealTime-Outer.png";
+	      var ImgURL= window.location.origin + "/NICEMap/images/RealTime-Outer.png";
              jQuery('img[src="'+ImgURL+'#'+selector+'"]').css({
                'transform': 'rotate('+degree+'deg)'
              });
