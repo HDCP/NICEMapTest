@@ -2,7 +2,7 @@ jQuery(document).ready(function () {
 
        initMap();
        // initial_population(); 
-       RefreshMapData();
+       // RefreshMapData();
        var route_val = jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteCode").val();
        getVehicles("#"+fulldata.Line[route_val].color);
        setTimeout(function(){
@@ -50,7 +50,7 @@ jQuery(document).ready(function () {
         if(jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnData16nc").val()!="")
             fulldata16nc=jQuery.parseJSON(jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnData16nc").val());
     }  
-function closeRouteSectionLineMap() {
+/*function closeRouteSectionLineMap() {
 	jQuery('body').removeClass('routes-list-open');
   jQuery("#routescontainerLineMap").slideUp("slow");
   jQuery(".routes-list-bottom").slideUp("slow");
@@ -58,7 +58,7 @@ function closeRouteSectionLineMap() {
   jQuery("#a_switch").css("background-color", "#002d56");
   
 }
-/* function switchToRoute() {
+function switchToRoute() {
   jQuery('body').addClass('routes-list-open');
   jQuery("#routescontainerLineMap").slideDown("slow",function(){
 	console.log(jQuery(window).innerHeight());
@@ -127,7 +127,7 @@ function showPositiondata(position) {
     // var url = window.location.origin + "\NICECustomPages\getnearbylines?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&buffer=1";
     var url = "http://www.nicebus.com\NICECustomPages\getnearbylines?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&buffer=1";
     getRoutesDataLineMap(url);
-} */
+} 
 
 function RefreshMapData() {
          infowindow = new google.maps.InfoWindow();
@@ -144,7 +144,12 @@ function RefreshMapData() {
 	 // var directionidVal=jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentDirection").val();
          var directionidVal=[0,1];
          var TimingPointStopsData=jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnStopsData").val();
-         if(serviceIdVal =="1" && directionidVal=="0")
+        
+	var routeValLength = routeVal.length;
+	var directionidValLength = directionidVal.length;
+	var serviceIdValLength = serviceIdVal.length;
+	
+	if(serviceIdVal =="1" && directionidVal=="0")
            {
              latLongList = fulldata.Line[routeVal].latlongListWeeKday;
            }
@@ -327,7 +332,7 @@ function getStops() {
        }
    });
  }
-
+*/
 function getETA() {
    var methodName = "getETA";
    var shortRouteName = jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteCode").val();
