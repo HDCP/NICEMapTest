@@ -1,7 +1,7 @@
 jQuery(document).ready(function () { 
 
-        initMap();
-       initial_population(); 
+       initMap();
+       // initial_population(); 
        RefreshMapData();
        var route_val = jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteCode").val();
        getVehicles("#"+fulldata.Line[route_val].color);
@@ -58,7 +58,7 @@ function closeRouteSectionLineMap() {
   jQuery("#a_switch").css("background-color", "#002d56");
   
 }
-function switchToRoute() {
+/* function switchToRoute() {
   jQuery('body').addClass('routes-list-open');
   jQuery("#routescontainerLineMap").slideDown("slow",function(){
 	console.log(jQuery(window).innerHeight());
@@ -75,7 +75,7 @@ function switchToRoute() {
   jQuery("#a_switch").attr("disabled", true);
   jQuery("#a_switch").css("background-color", "#a3a2a2");
   
-}
+} 
 
 function changeCheckboxLineMap(that) {
   if (jQuery(that).is(":checked")) {
@@ -127,7 +127,7 @@ function showPositiondata(position) {
     // var url = window.location.origin + "\NICECustomPages\getnearbylines?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&buffer=1";
     var url = "http://www.nicebus.com\NICECustomPages\getnearbylines?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&buffer=1";
     getRoutesDataLineMap(url);
-}
+} */
 
 function RefreshMapData() {
          infowindow = new google.maps.InfoWindow();
