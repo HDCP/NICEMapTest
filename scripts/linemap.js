@@ -137,7 +137,8 @@ function RefreshMapData() {
          var stopCode = [];
          var stopName = [];
          var routeListStrArray = [];
-         var routeVal=jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteCode").val();
+         // var routeVal=jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteCode").val();
+	 var routeVal= ["MMCS,ElFx,n1,n4,n4X,n6,n6X,n15","n16","n19,n20G,n20H,n21,n22,n22X,n23,n24,n25,n26","n27,n31,n32,n33,n35,n40_41,n43,n48,n49,n54","n55,n57,n58,n70,n71,n72,n78,n79,n80"];
          var serviceIdVal=jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentServiceId").val();
          var directionidVal=jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentDirection").val();
          var TimingPointStopsData=jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnStopsData").val();
