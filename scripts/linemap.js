@@ -336,7 +336,7 @@ function getETA() {
    if(stopId != "" && stopName != "") 
    {
      // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ shortRouteName +"&stop_id=" + stopId + "&stop_name=" + stopName;
-     var url = "http://www.nicebus.com//NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ shortRouteName +"&stop_id=" + stopId + "&stop_name=" + stopName;
+     var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ shortRouteName +"&stop_id=" + stopId + "&stop_name=" + stopName;
       jQuery.ajax({
          type: "GET",
          url: url,
