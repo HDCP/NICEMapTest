@@ -14,9 +14,10 @@
 <script src="/NICEMap/scripts/linemap.js"></script>
 <script>
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
+  var latlng = new google.maps.LatLng(40.73, -73.6);
+  map = new google.maps.Map(document.getElementById('googleMap'), {
     zoom: 11.75,
-    center: {lat: 40.73, lng: -73.6}
+    center: latlng
   });
 
   // NOTE: This uses cross-domain XHR, and may not work on older browsers.
