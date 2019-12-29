@@ -37,9 +37,10 @@ jQuery(document).ready(function () {
     var infowindow = "";
     function initMap() {
         map = new google.maps.Map(document.getElementById('googleMap'), {
-          center: {lat: 40.71226430831242, lng: -73.5794734954834},
-          zoom: 11
+          center: {lat: 40.73, lng: -73.6},
+          zoom: 11.75
         });
+	map.data.loadGeoJson('routes.geojson');
       }    
 
     function initial_population() {        
@@ -84,8 +85,9 @@ function changeCheckboxLineMap(that) {
             alert("Geolocation is not supported by this browser.");
         }
    } else {
-        var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=allroutes";
-        getRoutesDataLineMap(url);
+        // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=allroutes";
+        var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=allroutes";
+	getRoutesDataLineMap(url);
    }
 }
 
@@ -105,7 +107,8 @@ function getRoutesDataLineMap(url) {
 }
 
 function searchRoutesLineMap() {
-  var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=filterroutebyname&name=" + jQuery("#txt_searchRouteLineMap").val();
+  // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=filterroutebyname&name=" + jQuery("#txt_searchRouteLineMap").val();
+  var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=filterroutebyname&name=" + jQuery("#txt_searchRouteLineMap").val();	
   jQuery.ajax({
         type: "GET",
         url: url,
@@ -121,7 +124,8 @@ function searchRoutesLineMap() {
 }
 
 function showPositiondata(position) {
-    var url = window.location.origin + "\NICECustomPages\getnearbylines?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&buffer=1";
+    // var url = window.location.origin + "\NICECustomPages\getnearbylines?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&buffer=1";
+    var url = "http://www.nicebus.com\NICECustomPages\getnearbylines?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&buffer=1";
     getRoutesDataLineMap(url);
 }
 
@@ -279,8 +283,9 @@ function getStops() {
    var routeID = jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteId").val();
    var directionidVal=jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentDirection").val();
    var ServiceidVal=jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentServiceId").val();
-   var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeID +"&direction_id=" + directionidVal+"&service_id=" + ServiceidVal;
- 
+   // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeID +"&direction_id=" + directionidVal+"&service_id=" + ServiceidVal;
+   var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeID +"&direction_id=" + directionidVal+"&service_id=" + ServiceidVal;
+	
   jQuery.ajax({
        type: "GET",
        url: url,
@@ -330,8 +335,9 @@ function getETA() {
    //}
    if(stopId != "" && stopName != "") 
    {
-     var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ shortRouteName +"&stop_id=" + stopId + "&stop_name=" + stopName;
-     jQuery.ajax({
+     // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ shortRouteName +"&stop_id=" + stopId + "&stop_name=" + stopName;
+     var url = "http://www.nicebus.com//NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ shortRouteName +"&stop_id=" + stopId + "&stop_name=" + stopName;
+      jQuery.ajax({
          type: "GET",
          url: url,
          cache: false,
@@ -347,9 +353,10 @@ function getETA() {
               {
                 if(val1[1] == 'R') {
                   if(time1.length > 1) 
-                      jQuery("#sp_nextbusin").html(time1[0] + '<span class="unit">'+ time1[1] +' <img src="/NICE/media/assets/img/nice-real-time.gif" class="realtime" /> </span>');
+		      // Original Image location: /NICE/media/assets/img/nice-real-time.gif 
+                      jQuery("#sp_nextbusin").html(time1[0] + '<span class="unit">'+ time1[1] +' <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
                   else 
-                     jQuery("#sp_nextbusin").html(time1[0] + '<span class="unit"> &nbsp; <img src="/NICE/media/assets/img/nice-real-time.gif" class="realtime" /> </span>');
+                     jQuery("#sp_nextbusin").html(time1[0] + '<span class="unit"> &nbsp; <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
                   } else {
                   if(time1.length > 1) 
                    jQuery("#sp_nextbusin").html(time1[0] + '<span class="unit">'+ time1[1] +' </span>');
@@ -363,9 +370,9 @@ function getETA() {
                 var time2 = val2[0].split(' ');
                 if(val2[1] == 'R'){
                   if(time2.length > 1)
-                    jQuery("#sp_followingbusin").html(time2[0] + '<span class="unit">'+ time2[1] +' <img src="/NICE/media/assets/img/nice-real-time.gif" class="realtime" /> </span>');
+                    jQuery("#sp_followingbusin").html(time2[0] + '<span class="unit">'+ time2[1] +' <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
                   else 
-                    jQuery("#sp_followingbusin").html(time2[0] + '<span class="unit"> &nbsp; <img src="/NICE/media/assets/img/nice-real-time.gif" class="realtime" /> </span>');
+                    jQuery("#sp_followingbusin").html(time2[0] + '<span class="unit"> &nbsp; <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
                 } else {
                   if(time2.length > 1)
                    jQuery("#sp_followingbusin").html(time2[0] + '<span class="unit">'+ time2[1] +' </span>');
@@ -379,9 +386,9 @@ function getETA() {
                 var time3 = val3[0].split(' ');
                 if(val3[1] == 'R'){
                   if(time3.length > 1)
-                    jQuery("#sp_scheduledbusafter").html(time3[0] + '<span class="unit">'+ time3[1] +' <img src="/NICE/media/assets/img/nice-real-time.gif" class="realtime" /> </span>');
+                    jQuery("#sp_scheduledbusafter").html(time3[0] + '<span class="unit">'+ time3[1] +' <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
                   else
-                    jQuery("#sp_scheduledbusafter").html(time3[0] + '<span class="unit"> &nbsp; <img src="/NICE/media/assets/img/nice-real-time.gif" class="realtime" /> </span>');
+                    jQuery("#sp_scheduledbusafter").html(time3[0] + '<span class="unit"> &nbsp; <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
                 } else {
                   if(time3.length > 1)
                    jQuery("#sp_scheduledbusafter").html(time3[0] + '<span class="unit">'+ time3[1] +' </span>');
@@ -676,7 +683,8 @@ function showError(error) {
 function getVehicles(color) {
   var routeId = jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteCode").val();
   var methodName = "getrealtime";
-  var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
+  // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
+  var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
   jQuery.ajax({
        type: "GET",
        url: url,
@@ -686,8 +694,10 @@ function getVehicles(color) {
        success: function (response)
        {
           var data = response.ResultData;
-          var icon = window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Inner-bus-lines.png";
-          var outer_icon = window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.svg";
+          // var icon = window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Inner-bus-lines.png";
+          // var outer_icon = window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.svg";
+	  var icon = window.location.origin + "/images/RealTime-Inner-bus-lines.png";
+          var outer_icon = window.location.origin + "/images/RealTime-Outer.svg";
           var marker, point;
           if(Object.keys(markerStore).length > (data.length * 2)) {
             var objArr = Object.keys(markerStore);
@@ -716,8 +726,9 @@ function getVehicles(color) {
             }
                 
             function rotateMarker(selector, degree){
-              var ImgURL= window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png";                  
-             jQuery('img[src="'+ImgURL+'#'+selector+'"]').css({
+              // var ImgURL= window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png";                  
+             var ImgURL= window.location.origin + "/images/RealTime-Outer.png";
+	      jQuery('img[src="'+ImgURL+'#'+selector+'"]').css({
                'transform': 'rotate('+degree+'deg)'
              });
             }
@@ -733,8 +744,9 @@ function getVehicles(color) {
             }
               
             var outerIcon = {
-              url: window.location.origin +'/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png#' + data[i].vid,
-              scale: 1,
+              // url: window.location.origin +'/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png#' + data[i].vid,
+              url: window.location.origin +'/images/RealTime-Outer.png#' + data[i].vid,
+	      scale: 1,
               anchor: new google.maps.Point(35,35),
               strokeWeight: 1
             }
@@ -774,7 +786,8 @@ function getVehicles(color) {
           }
           for (var i=0; i< data.length; i++) {
             function rotateMarker(selector, degree){
-              var ImgURL= window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png"; 
+              // var ImgURL= window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png"; 
+	      var ImgURL= window.location.origin + "/images/RealTime-Outer.png";
              jQuery('img[src="'+ImgURL+'#'+selector+'"]').css({
                'transform': 'rotate('+degree+'deg)'
              });
