@@ -3,18 +3,24 @@ jQuery(document).ready(function () {
        initMap();
        // initial_population(); 
        // RefreshMapData();
-       var route_val = jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteCode").val();
-       getVehicles("#"+fulldata.Line[route_val].color);
-       setTimeout(function(){
-         getVehicles("#"+fulldata.Line[route_val].color);  
-       },5000);
-       setInterval(function() {
-         getVehicles("#"+fulldata.Line[route_val].color);
-       }, 15000);
-       getETA(false);   
-       setInterval(function() {
-         getETA(false);
-       }, 30000);
+	
+       var routeVal= ["MMCS,ElFx,n1,n4,n4X,n6,n6X,n15","n16","n19,n20G,n20H,n21,n22,n22X,n23,n24,n25,n26","n27,n31,n32,n33,n35,n40_41,n43,n48,n49,n54","n55,n57,n58,n70,n71,n72,n78,n79,n80"];
+       var serviceIdVal=[1,2,3];
+       var directionidVal=[0,1];
+	
+       var routeValLength = routeVal.length;
+       var directionidValLength = directionidVal.length;
+       var serviceIdValLength = serviceIdVal.length;
+	
+       for (var i = 0; i < routeValLength; i++) {
+	var route_val = routeVal[i]	
+	       getVehicles("#"+fulldata.Line[route_val].color);
+	       setTimeout(function(){
+		 getVehicles("#"+fulldata.Line[route_val].color);  
+	       },5000);
+	       setInterval(function() {
+		 getVehicles("#"+fulldata.Line[route_val].color);
+	       }, 15000);
   });
 
     var map;
@@ -42,114 +48,6 @@ jQuery(document).ready(function () {
         });
 	map.data.loadGeoJson('routes.geojson');
       }    
-
-    function initial_population() {        
-        fulldata = jQuery.parseJSON(jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnData").val());         
-      if(jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnData16x").val()!="")
-            fulldata16x=jQuery.parseJSON(jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnData16x").val());
-        if(jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnData16nc").val()!="")
-            fulldata16nc=jQuery.parseJSON(jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnData16nc").val());
-    }  
-
-function getETA() {
-   var methodName = "getETA";
-   var shortRouteName = jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteCode").val();
-   var stopId = ToCurrentStopId;
-   var stopName = ToCurrentStopName;
-   //if(showloading) {
-   //  showLoading();
-   //}
-   if(stopId != "" && stopName != "") 
-   {
-     // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ shortRouteName +"&stop_id=" + stopId + "&stop_name=" + stopName;
-     var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ shortRouteName +"&stop_id=" + stopId + "&stop_name=" + stopName;
-      jQuery.ajax({
-         type: "GET",
-         url: url,
-         cache: false,
-         contentType: "application/json; charset=utf-8",
-         dataType: "json",
-         success: function (response)
-         {
-              var data = response.ResultData[0];
-              var val1 = data.ETA1.split('|');
-              var time1 = val1[0].split(' ');
-              
-              if(data.ETA1 != "")
-              {
-                if(val1[1] == 'R') {
-                  if(time1.length > 1) 
-		      // Original Image location: /NICE/media/assets/img/nice-real-time.gif 
-                      jQuery("#sp_nextbusin").html(time1[0] + '<span class="unit">'+ time1[1] +' <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
-                  else 
-                     jQuery("#sp_nextbusin").html(time1[0] + '<span class="unit"> &nbsp; <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
-                  } else {
-                  if(time1.length > 1) 
-                   jQuery("#sp_nextbusin").html(time1[0] + '<span class="unit">'+ time1[1] +' </span>');
-                  else
-                    jQuery("#sp_nextbusin").html(time1[0]);
-                }
-              }
-              if(data.ETA2 != "")
-              {
-                var val2 = data.ETA2.split('|');
-                var time2 = val2[0].split(' ');
-                if(val2[1] == 'R'){
-                  if(time2.length > 1)
-                    jQuery("#sp_followingbusin").html(time2[0] + '<span class="unit">'+ time2[1] +' <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
-                  else 
-                    jQuery("#sp_followingbusin").html(time2[0] + '<span class="unit"> &nbsp; <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
-                } else {
-                  if(time2.length > 1)
-                   jQuery("#sp_followingbusin").html(time2[0] + '<span class="unit">'+ time2[1] +' </span>');
-                  else
-                    jQuery("#sp_followingbusin").html(time2[0]);
-                }
-              }
-              if(data.ETA3 != "")
-              {
-                var val3 = data.ETA3.split('|');
-                var time3 = val3[0].split(' ');
-                if(val3[1] == 'R'){
-                  if(time3.length > 1)
-                    jQuery("#sp_scheduledbusafter").html(time3[0] + '<span class="unit">'+ time3[1] +' <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
-                  else
-                    jQuery("#sp_scheduledbusafter").html(time3[0] + '<span class="unit"> &nbsp; <img src="/images/nice-real-time.gif" class="realtime" /> </span>');
-                } else {
-                  if(time3.length > 1)
-                   jQuery("#sp_scheduledbusafter").html(time3[0] + '<span class="unit">'+ time3[1] +' </span>');
-                  else
-                   jQuery("#sp_scheduledbusafter").html(time3[0]);
-                }
-              }
-              //$("#sp_currentstop").html(data.stopname + '<span><i>Stop #' + data.stopid + '</i></span>');
-              //checkForSelectedDirection(); 
-              //if(showloading) {
-              //  hideLoading();
-              //}
-         },
-         error: function (jqXHR, textStatus, errorThrown)
-         {
-           //if(showloading) {
-           //  hideLoading();
-           //}
-           console.log(errorThrown);
-         }
-     });
-   }
- }
-
-function calDistance(lat1, lon1, lat2, lon2) {
-	var radlat1 = Math.PI * lat1/180
-	var radlat2 = Math.PI * lat2/180
-	var theta = lon1-lon2
-	var radtheta = Math.PI * theta/180
-	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-	dist = Math.acos(dist)
-	dist = dist * 180/Math.PI
-	dist = dist * 60 * 1.1515
-	return dist * 0.8684;
-}
 
 function displayStopsOnMap(currentLat, currentLng) {
           
