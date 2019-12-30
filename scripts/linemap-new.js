@@ -54,7 +54,7 @@ function getVehicles() {
 	
   for (var i = 0; i < routeIDLength; i++) {
 	  var routeId = routeIDArray[i];
-  var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
+  var url = "https://cors-anywhere.herokuapp.com/https://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
   
   jQuery.ajax({
        type: "GET",
