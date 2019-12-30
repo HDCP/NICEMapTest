@@ -1,5 +1,5 @@
 function getVehicles1() {
-  var methodName = "getrealtime";
+  // var methodName = "getrealtime";
   // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
   var url1 = "https://cors-anywhere.herokuapp.com/https://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=getrealtime&route_id=n19,n20G,n20H,n21,n22,n22X,n23,n24,n25,n26";
   
@@ -10,7 +10,7 @@ function getVehicles1() {
         "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
         "Access-Control-Allow-Headers": "Origin"
        }, */
-       url: url,
+       url: url1,
        cache: false,
        contentType: "application/json",
        dataType: "json",
