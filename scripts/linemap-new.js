@@ -51,7 +51,7 @@ function getVehicles() {
 		      "n55,n57,n58,n70,n71,n72,n78,n79,n80"] 
   var routeIDLength = routeIDArray.length;
 	
-  for (var i = 0; i < routeValLength; i++) {
+  for (var i = 0; i < routeIDLength; i++) {
 	  var routeID = routeIDArray[i];
   var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
   
