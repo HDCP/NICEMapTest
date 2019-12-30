@@ -1,13 +1,14 @@
 function getVehicles2() {
   // var methodName = "getrealtime";
   // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
-  var url2 = "https://cors-anywhere.herokuapp.com/https://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=getrealtime&route_id=n16";
-  
+  // var url2 = "https://cors-anywhere.herokuapp.com/https://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=getrealtime&route_id=n16";
+  var url2 = "https://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=getrealtime&route_id=n16";
   jQuery.ajax({
        type: "GET",
        url: url2,
        cache: false,
        // contentType: "application/json",
+       Accept: "*/*",
        contentType: "text/plain",
        origin: "https://hdcp.github.io",
        dataType: "json",
