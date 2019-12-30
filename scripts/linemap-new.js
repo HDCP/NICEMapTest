@@ -52,7 +52,7 @@ jQuery(document).ready(function () {
       }    
 
 function getVehicles(color) {
-  var routeId = jQuery("#p_lt_ctl03_pageplaceholder1_p_lt_ctl00_CustomIndividualLineMap_hdnCurrentRouteCode").val();
+  var routeId = route_val;
   var methodName = "getrealtime";
   // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
   var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
