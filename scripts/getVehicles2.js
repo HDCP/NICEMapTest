@@ -10,7 +10,7 @@ function getVehicles2() {
        // contentType: "application/json",
        Accept: "*/*",
        contentType: "text/plain",
-       origin: "https://hdcp.github.io",
+       origin: "https://hdcp2.github.io",
        dataType: "json",
        success: function (response)
        {
