@@ -91,6 +91,7 @@ function getVehicles1() {
                 map: map,
                 icon: baseIcon,
                 title: data[i].vid + 1111,
+		snippet: "Vehicle #" + data[i].vid,
                 zIndex: 9999 + i,
                 optimized: false
               }); 
@@ -100,6 +101,7 @@ function getVehicles1() {
                 map: map,
                 icon: outerIcon,
                 title: data[i].vid + 2222,
+		snippet: "Vehicle #" + data[i].vid,
                 zIndex: 9999 + i,
                 optimized: false
               }); 
