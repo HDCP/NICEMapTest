@@ -58,6 +58,7 @@ function getVehicles() {
   
   jQuery.ajax({
        type: "GET",
+       headers: {"Access-Control-Allow-Origin": "*"},
        url: url,
        cache: false,
        contentType: "application/json",
