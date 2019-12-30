@@ -12,7 +12,9 @@ function getVehicles1() {
        }, */
        url: url1,
        cache: false,
-       contentType: "application/json",
+       // contentType: "application/json",
+       contentType: "text/plain",
+       origin: "https://hdcp.github.io",
        dataType: "json",
        success: function (response)
        {
