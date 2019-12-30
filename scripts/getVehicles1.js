@@ -20,8 +20,8 @@ function getVehicles1() {
 	  var icon = window.location.origin + "/NICEMap/images/RealTime-Inner-bus-lines.png";
           var outer_icon = window.location.origin + "/NICEMap/images/RealTime-Outer.svg";
           var marker, point;
-          if(Object.keys(markerStore).length > (data.length * 2)) {
-            var objArr = Object.keys(markerStore);
+          if(Object.keys(markerStore1).length > (data.length * 2)) {
+            var objArr = Object.keys(markerStore1);
             for(var i=0; i< objArr.length; i++) {
               var selectedMarker = jQuery.map(data, function(val, index){
                if( String(objArr[i]) ==  String(val.vid + "1111") || String(objArr[i]) ==  String(val.vid + "2222")){
@@ -29,7 +29,7 @@ function getVehicles1() {
                }
               });
               if(selectedMarker.length == 0) {
-                markerStore[objArr[i]].setMap(null);
+                markerStore1[objArr[i]].setMap(null);
               }
             }
           }
@@ -72,13 +72,13 @@ function getVehicles1() {
               strokeWeight: 1
             }
             
-            if(markerStore.hasOwnProperty(data[i].vid + 1111)) {
-              markerStore[data[i].vid + 2222].setIcon(outerIcon);
+            if(markerStore1.hasOwnProperty(data[i].vid + 1111)) {
+              markerStore1[data[i].vid + 2222].setIcon(outerIcon);
               
-              markerStore[data[i].vid + 1111].animateTo(point,{  easing: "linear",
+              markerStore1[data[i].vid + 1111].animateTo(point,{  easing: "linear",
                                  duration: 10000
                               });
-              markerStore[data[i].vid + 2222].animateTo(point,{  easing: "linear",
+              markerStore1[data[i].vid + 2222].animateTo(point,{  easing: "linear",
                                  duration: 10000
                               });
               
@@ -92,7 +92,7 @@ function getVehicles1() {
                 zIndex: 9999 + i,
                 optimized: false
               }); 
-              markerStore[data[i].vid + 1111] = marker;
+              markerStore1[data[i].vid + 1111] = marker;
               marker = new google.maps.Marker({
                 position: point,
                 map: map,
@@ -102,7 +102,7 @@ function getVehicles1() {
                 zIndex: 9999 + i,
                 optimized: false
               }); 
-              markerStore[data[i].vid + 2222] = marker;              
+              markerStore1[data[i].vid + 2222] = marker;              
             }
             rotateMarker(data[i].vid, Number(Number(data[i].hdg)));
             colorMarker(data[i].vid);
