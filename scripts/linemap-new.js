@@ -1,28 +1,18 @@
 jQuery(document).ready(function () { 
 
        initMap();
-
-       var routeVal0 = ["MMCS","ElFx","n1","n4","n4X","n6","n6X","n15",
-		      "n16","n19","n20G","n20H","n21","n22","n22X","n23","n24","n25","n26",
-		      "n27","n31","n32","n33","n35","n40_41","n43","n48","n49","n54",
-		      "n55","n57","n58","n70","n71","n72","n78","n79","n80"];
-       var serviceIdVal = [1,2,3];
-       var directionidVal = [0,1];
+       getVehicles();
+       setTimeout(function(){
+	       getVehicles();  
+	       },5000);
+       setInterval(function() {
+		 getVehicles();
+	       }, 15000);
 	
-       var routeValLength = routeVal0.length;
+       var serviceIdVal = [1,2,3];
+       var directionidVal = [0,1];	
        var directionidValLength = directionidVal.length;
        var serviceIdValLength = serviceIdVal.length;
-	
-       for (var i = 0; i < routeValLength; i++) {
-	var routeVal = routeVal0.toString();
-	var route_val = routeVal[i];	
-	       getVehicles("#"+fulldata.Line[route_val].color);
-	       setTimeout(function(){
-		 getVehicles("#"+fulldata.Line[route_val].color);  
-	       },5000);
-	       setInterval(function() {
-		 getVehicles("#"+fulldata.Line[route_val].color);
-	       }, 15000);
        }
   });
 
@@ -52,11 +42,20 @@ jQuery(document).ready(function () {
 	map.data.loadGeoJson('routes.geojson');
       }    
 
-function getVehicles(color) {
-  var routeId = route_val;
+function getVehicles() {
   var methodName = "getrealtime";
   // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
+  
+  var routeIDArray = ["MMCS,ElFx,n1,n4,n4X,n6,n6X,n15","n16",
+		      "n19,n20G,n20H,n21,n22,n22X,n23,n24,n25,n26",
+		      "n27,n31,n32,n33,n35,n40_41,n43,n48,n49,n54",
+		      "n55,n57,n58,n70,n71,n72,n78,n79,n80"] 
+  var routeIDLength = routeIDArray.length;
+	
+  for (var i = 0; i < routeValLength; i++) {
+	  var routeID = routeIDArray[i];
   var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
+  
   jQuery.ajax({
        type: "GET",
        url: url,
@@ -182,5 +181,6 @@ function getVehicles(color) {
        {
          console.log(errorThrown);
        }
-   }); 
+   });
+ }
 }
