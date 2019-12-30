@@ -13,7 +13,6 @@ jQuery(document).ready(function () {
        var directionidVal = [0,1];	
        var directionidValLength = directionidVal.length;
        var serviceIdValLength = serviceIdVal.length;
-       }
   });
 
     var map;
