@@ -5,19 +5,19 @@ var serviceIdValLength = serviceIdVal.length;
 var map;
 var color;
 
-if (data[i].vid > 1699 && windowsize < 1800) {
+if (data[i].vid > 1699 && data[i].vid < 1800) {
   color = "#007AFB";
 }
-else if (data[i].vid > 1799 && windowsize < 1840) {
+else if (data[i].vid > 1799 && data[i].vid < 1840) {
   color = "#AF00FB";
 }
-else if (data[i].vid > 1839 && windowsize < 1885) {	
+else if (data[i].vid > 1839 && data[i].vid < 1885) {	
   color = "#FB6E00";
 }
-else if (data[i].vid > 1884 && windowsize < 1965) {	
+else if (data[i].vid > 1884 && data[i].vid < 1965) {	
   color = "#00FBD5";
 }
-else if (data[i].vid > 1964 && windowsize < 1970) {	
+else if (data[i].vid > 1964 && data[i].vid < 1970) {	
   color = "#1300FB";
 }
 else {
