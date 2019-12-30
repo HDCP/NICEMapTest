@@ -10,7 +10,6 @@
         crossorigin="anonymous"></script>
 <script src="/NICEMap/scripts/tablesaw.js"></script>
 <script src="/NICEMap/scripts/tablesaw-init.js"></script> 
-<!-- <script src="/NICEMap/scripts/linemap-new.js"></script> --->
 <script src="/NICEMap/scripts/animate-marker.js"></script>
         
 <script src="/NICEMap/scripts/getVehicles1.js"></script>
@@ -34,9 +33,7 @@ function initMap() {
 	// map.data.loadGeoJson('stops.geojson'); // If we want to show all stops, we can enable this.
 }    
 	
-// google.maps.event.addDomListener(window, 'load', initMap);	
-
-initMap();
+google.maps.event.addDomListener(window, 'load', initMap);
 getVehicles1();
 setTimeout(function(){
 	       getVehicles1();  
