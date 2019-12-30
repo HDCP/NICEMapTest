@@ -45,7 +45,8 @@ function getVehicles() {
   var methodName = "getrealtime";
   // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
   
-  var routeIDArray = ["MMCS,ElFx,n1,n4,n4X,n6,n6X,n15","n16",
+  var routeIDArray = ["MMCS,ElFx,n1,n4,n4X,n6,n6X,n15",
+		      "n16",
 		      "n19,n20G,n20H,n21,n22,n22X,n23,n24,n25,n26",
 		      "n27,n31,n32,n33,n35,n40_41,n43,n48,n49,n54",
 		      "n55,n57,n58,n70,n71,n72,n78,n79,n80"] 
