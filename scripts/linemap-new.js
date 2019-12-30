@@ -52,7 +52,7 @@ function getVehicles() {
   var routeIDLength = routeIDArray.length;
 	
   for (var i = 0; i < routeIDLength; i++) {
-	  var routeID = routeIDArray[i];
+	  var routeId = routeIDArray[i];
   var url = "http://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
   
   jQuery.ajax({
