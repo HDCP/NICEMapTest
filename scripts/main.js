@@ -3,8 +3,27 @@ var directionidVal = [0,1];
 var directionidValLength = directionidVal.length;
 var serviceIdValLength = serviceIdVal.length;
 var map;
-var color = "#FB6E00";
+var color;
 
+if (data[i].vid > 1699 && windowsize < 1800) {
+  color = "#007AFB";
+}
+else if (data[i].vid > 1799 && windowsize < 1840) {
+  color = "#AF00FB";
+}
+else if (data[i].vid > 1839 && windowsize < 1885) {	
+  color = "#FB6E00";
+}
+else if (data[i].vid > 1884 && windowsize < 1965) {	
+  color = "#00FBD5";
+}
+else if (data[i].vid > 1964 && windowsize < 1970) {	
+  color = "#1300FB";
+}
+else {
+  color = "#FB007E";
+}
+	
 var markerStore1 = {};
 var markerStore2 = {};
 var markerStore3 = {};
