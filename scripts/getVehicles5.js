@@ -10,7 +10,7 @@ function getVehicles5() {
        // contentType: "application/json",
        Accept: "*/*",
        contentType: "text/plain",
-       origin: "https://hdcp.github.io",
+       origin: "https://hdcp.github.io/NICEMap",
        dataType: "json",
        success: function (response)
        {
