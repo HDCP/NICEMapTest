@@ -5,14 +5,12 @@ function getVehicles4() {
   
   jQuery.ajax({
        type: "GET",
-       /* headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-        "Access-Control-Allow-Headers": "Origin"
-       }, */
        url: url4,
        cache: false,
-       contentType: "application/json",
+       // contentType: "application/json",
+       Accept: "*/*",
+       contentType: "text/plain",
+       origin: "https://hdcp.github.io",
        dataType: "json",
        success: function (response)
        {
