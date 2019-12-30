@@ -40,6 +40,7 @@ jQuery(document).ready(function () {
           zoom: 11.75
         });
 	map.data.loadGeoJson('routes.geojson');
+	// map.data.loadGeoJson('stops.geojson'); // If we want to show all stops, we can enable this.
       }    
 
 function getVehicles() {
