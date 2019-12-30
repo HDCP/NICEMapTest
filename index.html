@@ -20,6 +20,22 @@
 <script src="/NICEMap/scripts/getVehicles5.js"></script>
         
 <script>
+var serviceIdVal = [1,2,3];
+var directionidVal = [0,1];	
+var directionidValLength = directionidVal.length;
+var serviceIdValLength = serviceIdVal.length;
+
+function initMap() {
+        map = new google.maps.Map(document.getElementById('googleMap'), {
+          center: {lat: 40.73, lng: -73.6},
+          zoom: 11.75
+        });
+	map.data.loadGeoJson('routes.geojson');
+	// map.data.loadGeoJson('stops.geojson'); // If we want to show all stops, we can enable this.
+}    
+	
+google.maps.event.addDomListener(window, 'load', initMap);	
+	
 initMap();
 getVehicles1();
 setTimeout(function(){
@@ -65,21 +81,6 @@ setInterval(function() {
 		 getVehicles5();
 	       }, 15000);
 */	
-var serviceIdVal = [1,2,3];
-var directionidVal = [0,1];	
-var directionidValLength = directionidVal.length;
-var serviceIdValLength = serviceIdVal.length;
-
-function initMap() {
-        map = new google.maps.Map(document.getElementById('googleMap'), {
-          center: {lat: 40.73, lng: -73.6},
-          zoom: 11.75
-        });
-	map.data.loadGeoJson('routes.geojson');
-	// map.data.loadGeoJson('stops.geojson'); // If we want to show all stops, we can enable this.
-}    
-	
-google.maps.event.addDomListener(window, 'load', initMap);
 </script>
     <div id="googleMap"></div>
 </body>
