@@ -34,25 +34,25 @@ function initMap() {
 	// map.data.loadGeoJson('stops.geojson'); // If we want to show all stops, we can enable this.
 }    
 	
-google.maps.event.addDomListener(window, 'load', initMap);	
-	
-// getVehicles1();
+// google.maps.event.addDomListener(window, 'load', initMap);	
+
+initMap();
+getVehicles1();
 setTimeout(function(){
 	       getVehicles1();  
 	       },5000);
 setInterval(function() {
 		 getVehicles1();
 	       }, 15000);
-/*	
+	
 getVehicles2();
-wait(5000);
 setTimeout(function(){
 	       getVehicles2();  
 	       },5000);
 setInterval(function() {
 		 getVehicles2();
 	       }, 15000);
-	
+/*	
 getVehicles3();
 wait(5000);
 setTimeout(function(){
