@@ -46,24 +46,6 @@ function getVehicles3() {
               strokeWeight: 1
             }
             
-	    if (data[i].vid > 1699 && data[i].vid < 1800) {
-		  color = "#007AFB";
-		}
-		else if (data[i].vid > 1799 && data[i].vid < 1840) {
-		  color = "#AF00FB";
-		}
-		else if (data[i].vid > 1839 && data[i].vid < 1885) {	
-		  color = "#FB6E00";
-		}
-		else if (data[i].vid > 1884 && data[i].vid < 1965) {	
-		  color = "#00FBD5";
-		}
-		else if (data[i].vid > 1964 && data[i].vid < 1970) {	
-		  color = "#1300FB";
-		}
-		else {
-		  color = "#FB007E";
-		}
 	    
             function rotateMarker(selector, degree){
               // var ImgURL= window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png";                  
@@ -131,6 +113,26 @@ function getVehicles3() {
              jQuery('img[src="'+ImgURL+'#'+selector+'"]').css({
                'transform': 'rotate('+degree+'deg)'
              });
+		    
+	      if (data[i].vid > 1699 && data[i].vid < 1800) {
+		  color = "#007AFB";
+		}
+		else if (data[i].vid > 1799 && data[i].vid < 1840) {
+		  color = "#AF00FB";
+		}
+		else if (data[i].vid > 1839 && data[i].vid < 1885) {	
+		  color = "#FB6E00";
+		}
+		else if (data[i].vid > 1884 && data[i].vid < 1965) {	
+		  color = "#00FBD5";
+		}
+		else if (data[i].vid > 1964 && data[i].vid < 1970) {	
+		  color = "#1300FB";
+		}
+		else {
+		  color = "#FB007E";
+		}
+		    
             }
             function colorMarker(selector){
               jQuery('img[src="'+ icon +'#'+selector+'"]').css({
