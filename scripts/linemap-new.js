@@ -16,6 +16,7 @@ jQuery(document).ready(function () {
   });
 
     var map;
+    var color = "#FB6E00";
     var mapInfo = "";
     var mapInfoList = new Array();
     var polylineArr = [];
