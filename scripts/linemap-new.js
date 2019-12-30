@@ -327,5 +327,4 @@ function getVehicles1() {
          console.log(errorThrown);
        }
    });
- }
 }
