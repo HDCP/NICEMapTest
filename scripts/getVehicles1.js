@@ -94,7 +94,7 @@ function getVehicles1() {
                 optimized: false
               });
 	      marker.addListener('click', function() {
-              infowindow.open(map, this);
+              infowindow.open(map, marker);
               });
               markerStore1[data[i].vid + 1111] = marker;
               marker = new google.maps.Marker({
