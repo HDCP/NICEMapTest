@@ -92,7 +92,10 @@ function getVehicles1() {
 		// snippet: "Vehicle #" + data[i].vid,
                 zIndex: 9999 + i,
                 optimized: false
-              }); 
+              });
+	      marker.addListener('click', function() {
+              infowindow.open(map, marker);
+              });
               markerStore1[data[i].vid + 1111] = marker;
               marker = new google.maps.Marker({
                 position: point,
@@ -102,9 +105,6 @@ function getVehicles1() {
 		// snippet: "Vehicle #" + data[i].vid,
                 zIndex: 9999 + i,
                 optimized: false
-              });
-	      marker.addListener('click', function() {
-              infowindow.open(map, marker);
               });
               markerStore1[data[i].vid + 2222] = marker;              
             }
