@@ -61,9 +61,12 @@ function getVehicles2() {
 		else if (data[i].vid > 1964 && data[i].vid < 1970) {	
 		  color = "#1300FB";
 		}
-		else {
+		else if (data[i].vid > 1969 && data[i].vid < 1985) {
 		  color = "#FB007E";
-		}
+		}   
+		else {
+		  color = "#FFFB00";	
+		}   
 	    
             function rotateMarker(selector, degree){
               // var ImgURL= window.location.origin + "/App_Themes/Default/Images/DocumentTypeIcons/RealTime-Outer.png";                  
