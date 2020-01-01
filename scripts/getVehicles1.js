@@ -102,7 +102,11 @@ function getVehicles1() {
 		snippet: "Vehicle #" + data[i].vid,
                 zIndex: 9999 + i,
                 optimized: false
-              }); 
+              });
+              var infowindow = new google.maps.InfoWindow({content: "Vehicle #" + data[i].vid});
+	      marker.addListener('click', function() {
+              infowindow.open(map, marker);
+              });
               markerStore1[data[i].vid + 2222] = marker;              
             }
             rotateMarker(data[i].vid, Number(Number(data[i].hdg)));
