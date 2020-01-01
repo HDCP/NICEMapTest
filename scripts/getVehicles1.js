@@ -37,7 +37,7 @@ function getVehicles1() {
           if(data.length > 0 && data[0].lat != "") {
            for (var i=0; i< data.length; i++) {
             point = new google.maps.LatLng({lat: parseFloat(data[i].lat), lng: parseFloat(data[i].lon)})
-             
+            var infowindow = new google.maps.InfoWindow({content: "Vehicle #" + data[i].vid});
             var baseIcon = {
               url: icon + '#' + data[i].vid,
               size: new google.maps.Size(42, 42),
@@ -103,7 +103,6 @@ function getVehicles1() {
                 zIndex: 9999 + i,
                 optimized: false
               });
-              var infowindow = new google.maps.InfoWindow({content: "Vehicle #" + data[i].vid});
 	      marker.addListener('click', function() {
               infowindow.open(map, marker);
               });
