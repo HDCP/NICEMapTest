@@ -93,14 +93,21 @@ function getVehicles3() {
                 optimized: false
               }); 
               markerStore3[data[i].vid + 1111] = marker;
-              marker = new google.maps.Marker({
+              const contentString = data[i].vid + " - n24";
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+	      marker = new google.maps.Marker({
                 position: point,
                 map: map,
                 icon: outerIcon,
                 title: data[i].vid + " - n24",
                 zIndex: 9999 + i,
                 optimized: false
-              }); 
+              });
+	      marker.addListener("click", () => {
+                 infowindow.open(map, marker);
+              });
               markerStore3[data[i].vid + 2222] = marker;              
             }
             rotateMarker(data[i].vid, Number(Number(data[i].hdg)));
