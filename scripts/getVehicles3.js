@@ -3,6 +3,12 @@ function getVehicles3() {
   // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
   var url3 = "https://cors-anywhere.herokuapp.com/https://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=getrealtime&route_id=n20G,n24";
   
+var route_id = "Value of route_id";
+alert(window["route_id"]);
+
+var routeId = "Value of routeId";
+alert(window["routeId"]);
+	
   jQuery.ajax({
        type: "GET",
        url: url3,
@@ -101,7 +107,7 @@ function getVehicles3() {
                 zIndex: 9999 + i,
                 optimized: false
               }); 
-              markerStore3[data[i].vid + route_id] = marker;              
+              markerStore3[data[i].vid + 2222] = marker;              
             }
             rotateMarker(data[i].vid, Number(Number(data[i].hdg)));
             colorMarker(data[i].vid);
