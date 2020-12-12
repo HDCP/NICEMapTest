@@ -74,12 +74,12 @@ function getVehicles3() {
             }
             
             if(markerStore3.hasOwnProperty(data[i].vid + 1111)) {
-              markerStore3[data[i].vid + " - n24"].setIcon(outerIcon);
+              markerStore3[data[i].vid + 2222].setIcon(outerIcon); //Not This
               
               markerStore3[data[i].vid + 1111].animateTo(point,{  easing: "linear",
                                  duration: 10000
                               });
-              markerStore3[data[i].vid + " - n24"].animateTo(point,{  easing: "linear",
+              markerStore3[data[i].vid + 2222].animateTo(point,{  easing: "linear", //Not This
                                  duration: 10000
                               });
               
@@ -101,7 +101,7 @@ function getVehicles3() {
                 zIndex: 9999 + i,
                 optimized: false
               }); 
-              markerStore3[data[i].vid + 2222] = marker;              
+              markerStore3[data[i].vid + " - n24"] = marker;              
             }
             rotateMarker(data[i].vid, Number(Number(data[i].hdg)));
             colorMarker(data[i].vid);
