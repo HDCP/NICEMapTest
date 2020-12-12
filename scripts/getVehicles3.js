@@ -156,10 +156,7 @@ function getVehicles3() {
          console.log(errorThrown);
        }
 	  
-var route_id = "Value of route_id";
 alert(window["route_id"]);
-
-var routeId = "Value of routeId";
 alert(window["routeId"]);
 	  
    });	
