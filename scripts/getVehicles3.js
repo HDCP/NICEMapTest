@@ -74,12 +74,12 @@ function getVehicles3() {
             }
             
             if(markerStore3.hasOwnProperty(data[i].vid + 1111)) {
-              markerStore3[data[i].vid + 2222].setIcon(outerIcon);
+              markerStore3[data[i].vid + route_id].setIcon(outerIcon);
               
               markerStore3[data[i].vid + 1111].animateTo(point,{  easing: "linear",
                                  duration: 10000
                               });
-              markerStore3[data[i].vid + 2222].animateTo(point,{  easing: "linear",
+              markerStore3[data[i].vid + route_id].animateTo(point,{  easing: "linear",
                                  duration: 10000
                               });
               
