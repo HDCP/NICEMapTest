@@ -93,8 +93,8 @@ function getVehicles3() {
                 optimized: false
               }); 
               markerStore3[data[i].vid + 1111] = marker;
-              const contentString = data[i].vid + " - n24";
-              const infowindow = new google.maps.InfoWindow({
+              const contentString[i] = data[i].vid + " - n24";
+              const infowindow[i] = new google.maps.InfoWindow({
                 content: contentString,
               });
 	      marker = new google.maps.Marker({
