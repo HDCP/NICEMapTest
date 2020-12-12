@@ -2,13 +2,7 @@ function getVehicles3() {
   // var methodName = "getrealtime";
   // var url = window.location.origin + "/NICECustomPages/getjsondata.aspx?getData=" + methodName + "&route_id="+ routeId;
   var url3 = "https://cors-anywhere.herokuapp.com/https://www.nicebus.com/NICECustomPages/getjsondata.aspx?getData=getrealtime&route_id=n20G,n24";
-  
-var route_id = "Value of route_id";
-alert(window["route_id"]);
-
-var routeId = "Value of routeId";
-alert(window["routeId"]);
-	
+  	
   jQuery.ajax({
        type: "GET",
        url: url3,
@@ -161,5 +155,12 @@ alert(window["routeId"]);
        {
          console.log(errorThrown);
        }
-   });
+	  
+var route_id = "Value of route_id";
+alert(window["route_id"]);
+
+var routeId = "Value of routeId";
+alert(window["routeId"]);
+	  
+   });	
  }
